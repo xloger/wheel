@@ -17,8 +17,8 @@ public class DbBean {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 			System.out.println("加载驱动出错");
+			e.printStackTrace();
 		}
 	}
 	
@@ -27,8 +27,8 @@ public class DbBean {
 			conn = (Connection)DriverManager.getConnection(url, user, password);
 			return conn;
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("连接数据库出错");
+			e.printStackTrace();
 			return null;
 		}
 
@@ -45,8 +45,8 @@ public class DbBean {
 			}
 		
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("查找用户名出错");
+			e.printStackTrace();
 		}
 		return 0;
 	}
@@ -67,11 +67,37 @@ public class DbBean {
 					+ "')");
 			return i;
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("添加用户出错");
+			e.printStackTrace();
 		}
 		
 		return 0;		
+	}
+	
+	public UserBean getUser(String name){
+		conn=this.getConnection();
+		try {
+			st=conn.createStatement();
+			re=st.executeQuery("select * from wheel_users where user_name='"
+					+name
+					+"'");
+			while(re.next()){
+				UserBean us=new UserBean();
+				us.setID(re.getInt(1));
+				us.setName(re.getString(2));
+				us.setPassword(re.getString(3));
+				us.setNicename(re.getString(4));
+				us.setEmail(re.getString(5));
+				us.setImage(re.getString(6));
+				us.setRegistertime(re.getTimestamp(7));
+				us.setStatus(re.getInt(8));
+				return us;
+			}
+		} catch (SQLException e) {
+			System.out.println("获取用户出错");
+			e.printStackTrace();
+		}
+		return null;		
 	}
 
 }
