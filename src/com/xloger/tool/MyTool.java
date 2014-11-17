@@ -6,4 +6,13 @@ public class MyTool {
 		java.sql.Timestamp  datesql=new java.sql.Timestamp(date.getTime());
 		return datesql;
 	}
+	
+	public static String changeHTML(String value){
+		value=value.replace("&", "&amp");
+		value=value.replace(" ", "&nbsp");
+		value=value.replace("<", "&lt");
+		value=value.replace(">", "&gt");
+		value=value.replace("\r\n", "<br>");
+		return value;
+	}
 }

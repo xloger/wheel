@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.xloger.bean.DbBean;
 import com.xloger.bean.UserBean;
+import com.xloger.dao.UserDao;
 import com.xloger.tool.MyTool;
 
 
@@ -29,14 +29,14 @@ public class RegisterServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		DbBean db=new DbBean();
+		UserDao udao=new UserDao();
 		int jump=0; //判断跳转页面
 		String name=req.getParameter("name");
 		String psw1=req.getParameter("password1");
 		String psw2=req.getParameter("password2");
 		String email=req.getParameter("email");
 		if(psw1.equals(psw2)){
-			int i=db.searchNo(name);
+			int i=udao.searchId(name);
 			if(i==0){
 				UserBean us=new UserBean();
 				us.setName(name);
@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet{
 				us.setEmail(email);
 				us.setRegistertime(MyTool.getDate());
 				us.setStatus(0);
-				db.addUser(us);
+				udao.addUser(us);
 				jump=1;
 			}else {
 				System.out.println("用户已经存在");

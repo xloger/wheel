@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.xloger.bean.DbBean;
 import com.xloger.bean.UserBean;
+import com.xloger.dao.UserDao;
 
 public class LoginServlet extends HttpServlet{
 
@@ -27,12 +27,12 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		DbBean db=new DbBean();
+		UserDao udao=new UserDao();
 		UserBean us=new UserBean();
 		int jump=0; //判断跳转页面
 		String name=req.getParameter("name");
 		String psw=req.getParameter("password");
-		us=db.getUser(name);
+		us=udao.getUser(name);
 		if(us!=null){
 			if(us.getPassword().equals(psw)){
 				jump=1;
