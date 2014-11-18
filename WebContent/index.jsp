@@ -14,7 +14,8 @@ if(session.getAttribute("loginer")==null){ %>
 <p><a href="login.jsp">登陆</a></p>
 <% }else{ %>
 <p>您好，用户<% out.print( ((UserBean)session.getAttribute("loginer")).getName() );%></p>
-<p><a href="">注销</a></p>
+<p><a href="post.jsp">发帖</a></p>
+<p><a href="login?action=logout">注销</a></p>
 <% } %>
 </body>
 </html>

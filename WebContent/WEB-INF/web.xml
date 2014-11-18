@@ -27,6 +27,15 @@
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>post</servlet-name>
+		<servlet-class>com.xloger.servlet.PostServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>post</servlet-name>
+		<url-pattern>/post</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 用于解决中文乱码问题 -->
 	<filter>
 		<filter-name>Set Character Encoding</filter-name>
