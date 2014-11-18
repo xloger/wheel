@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.xloger.bean.UserBean;
 import com.xloger.dao.UserDao;
@@ -27,6 +28,28 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		String action=req.getParameter("action");
+		if(action.equals("islogin")){
+			this.islogin(req, resp);
+		}else if(action.equals("login")){
+			this.login(req, resp);
+		}else if(action.equals("logout")){
+			this.logout(req, resp);
+		}
+	}
+	
+	private boolean islogin(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		HttpSession session=req.getSession();
+		if(session.getAttribute("loginer")!=null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	private void login(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		UserDao udao=new UserDao();
 		UserBean us=new UserBean();
 		int jump=0; //判断跳转页面
@@ -35,6 +58,8 @@ public class LoginServlet extends HttpServlet{
 		us=udao.getUser(name);
 		if(us!=null){
 			if(us.getPassword().equals(psw)){
+				HttpSession session=req.getSession();
+				session.setAttribute("loginer", us);
 				jump=1;
 			}else{
 				System.out.println("密码不一致");
@@ -55,7 +80,12 @@ public class LoginServlet extends HttpServlet{
 		} else if(jump==3){
 			rd = req.getRequestDispatcher("register.jsp");
 			rd.forward(req, resp);
-		}
+		}		
+	}
+	
+	private void logout(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
 	}
 
 }
