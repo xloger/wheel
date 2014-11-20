@@ -35,7 +35,9 @@
 		<servlet-name>post</servlet-name>
 		<url-pattern>/post</url-pattern>
 	</servlet-mapping>
-	
+
+
+		
 	<!-- 用于解决中文乱码问题 -->
 	<filter>
 		<filter-name>Set Character Encoding</filter-name>

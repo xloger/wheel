@@ -1,5 +1,9 @@
 package com.xloger.dao;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.xloger.bean.DbBean;
 import com.xloger.bean.PostBean;
 
@@ -24,5 +28,30 @@ public class PostDao {
 			e.printStackTrace();
 		}
 		return i;
+	}
+	
+	public List<PostBean> showPost(){
+		DbBean db=new DbBean();
+		List<PostBean> postlist=new ArrayList<PostBean>();
+		String sql="select * from wheel_posts";
+		try {
+			ResultSet rs=db.query(sql);
+			while(rs.next()){
+				PostBean po=new PostBean();
+				po.setID(rs.getInt(1));
+				po.setAuthor(rs.getString(2));
+				po.setTitle(rs.getString(3));
+				po.setContent(rs.getString(4));
+				po.setDate(rs.getTimestamp(5));
+				po.setStatus(rs.getInt(6));
+				postlist.add(po);
+			}
+		} catch (Exception e) {
+			System.out.println("显示所有文章出错");
+			e.printStackTrace();
+		}
+		
+		
+		return postlist;
 	}
 }

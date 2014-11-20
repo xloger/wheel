@@ -10,16 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="<%=basePath%>">
-<title>登陆</title>
+<title>demo</title>
 </head>
 <body>
-<p><a href="/index.jsp">返回</a></p>
-<form action="login?action=login" method="post">
-用户：<input type="text" name="name">
-<br>
-密码：<input type="password" name="password">
-<br>
-<input type="submit">
-</form>
+
 </body>
 </html>
