@@ -36,7 +36,14 @@
 		<url-pattern>/post</url-pattern>
 	</servlet-mapping>
 
-
+	<servlet>
+		<servlet-name>p</servlet-name>
+		<servlet-class>com.xloger.servlet.PServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>p</servlet-name>
+		<url-pattern>/p/*</url-pattern>
+	</servlet-mapping>
 		
 	<!-- 用于解决中文乱码问题 -->
 	<filter>

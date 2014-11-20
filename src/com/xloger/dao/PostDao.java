@@ -54,4 +54,27 @@ public class PostDao {
 		
 		return postlist;
 	}
+	
+	public PostBean getPost(int id){
+		DbBean db=new DbBean();
+		try {
+			ResultSet re=db.query("select * from wheel_posts where ID='"
+					+id
+					+"'");
+			while(re.next()){
+				PostBean po=new PostBean();
+				po.setID(re.getInt(1));
+				po.setAuthor(re.getString(2));
+				po.setTitle(re.getString(3));
+				po.setContent(re.getString(4));
+				po.setDate(re.getTimestamp(5));
+				po.setStatus(re.getInt(6));
+				return po;
+			}
+		} catch (Exception e) {
+			System.out.println("获取帖子信息出错");
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
