@@ -38,7 +38,7 @@
 
 	<servlet>
 		<servlet-name>comment</servlet-name>
-		<servlet-class>com.xloger.servlet.PostServlet</servlet-class>
+		<servlet-class>com.xloger.servlet.CommentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>comment</servlet-name>

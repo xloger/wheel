@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 Email:<input type="text" name="email">
 <br>
-<input type="submit">
+<input type="submit" value="注册">
 </form>
 </body>
 </html>

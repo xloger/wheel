@@ -22,6 +22,6 @@ public class MyTool {
 		String s1=req.getContextPath()+req.getServletPath()+"/";
 		String s2=req.getRequestURI();
 		String s3=s2.replaceAll(s1, "");
-		return s3;		
+		return s3;
 	}
 }

@@ -5,7 +5,7 @@ public class CommentBean {
 	private int post_ID;
 	private int author_ID;
 	private String content;
-	private String date;
+	private java.sql.Timestamp date;
 	private int status;
 	private String ip;
 	private String agent;
@@ -33,10 +33,10 @@ public class CommentBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getDate() {
+	public java.sql.Timestamp getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(java.sql.Timestamp date) {
 		this.date = date;
 	}
 	public int getStatus() {
