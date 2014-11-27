@@ -11,8 +11,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="<%=basePath%>">
 <title>发帖</title>
+<link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+<%@ include file = "header.jsp" %>
+
 <form action="post?action=add" method="post">
 标题：<input type="text" name="title">
 <br>
@@ -20,5 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <input type="submit">
 </form>
+
+<%@ include file = "bottom.jsp" %>
 </body>
 </html>

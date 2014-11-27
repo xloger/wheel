@@ -17,8 +17,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${po.getTitle()}</title>
 <base href="<%=basePath%>">
+<link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+<%@ include file = "header.jsp" %>
+
 <p>发帖人：${po.getAuthor() }</p>
 <pre>${po.getContent() }</pre>
 <%
@@ -52,5 +55,7 @@ if(comlist==null||comlist.size()==0){
 <% }else{ %>
 	<p>请先登录再回帖</p>
 <% } %>
+
+<%@ include file = "bottom.jsp" %>
 </body>
 </html>
