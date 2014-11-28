@@ -22,13 +22,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <%@ include file = "header.jsp" %>
 
-<p>发帖人：${po.getAuthor() }</p>
+<div class="mainpo">
+<h2>${po.getTitle() }</h2>
+<p>发帖人：${po.getAuthor() } <span>发帖时间：${po.getDate() }</span> </p>
 <pre>${po.getContent() }</pre>
+</div>
+<hr>
+
 <%
 List<CommentBean> comlist=IndexFunction.showComment(((PostBean)request.getAttribute("po")).getID());
 if(comlist==null||comlist.size()==0){
 %>
-	<p>没有回帖</p>
+	<h3>没有回帖</h3>
+	<hr>
 <%
 }else {
 	int i=0;
@@ -36,7 +42,14 @@ if(comlist==null||comlist.size()==0){
 		CommentBean com=comlist.get(i);
 %>
 
+	<div class="compo">
+	<p>回帖人：<%=com.getAuthor_ID() %>
+		<span>时间：<%=com.getDate() %></span>
+		<span>ip：<%=com.getIp() %></span>
+		<span>来自：<%=com.getAgent() %></span></p>
 	<p><%=com.getContent() %></p>
+	<hr>
+	</div>
 <%
 	i++;
 	}
@@ -45,10 +58,12 @@ if(comlist==null||comlist.size()==0){
 
 
 <% if(session.getAttribute("loginer")!=null){%>
-	<form action="comment" method="post">
+	<form action="comment" method="post" class="subpo">
+	<p>回帖内容：</p>
+	<textarea name="content"></textarea>
+	<br>
 	<input type="hidden" name="post_id" value="${po.getID()}">
 	<input type="hidden" name="author_id" value="${loginer.getID()}">
-	<p>回帖内容：<input type="text" name="content"></p>
 	<input type="submit" value="回帖">
 	</form>
 	

@@ -27,7 +27,12 @@ if(polist==null||polist.size()==0){
 	while(i<polist.size()){
 		PostBean po=polist.get(i);
 %>
-	<p><a href="p/<%=po.getID() %>"><%=po.getTitle() %></a></p>
+	<div class="posts">
+	<a class="postname" href="p/<%=po.getID()%>"><%=po.getTitle() %></a>
+	<span>作者：<%=po.getAuthor()%></span>
+	<p>发布时间：<%=po.getDate() %></p>
+	</div>
+	<hr>
 <%
 	i++;
 	}

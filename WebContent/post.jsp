@@ -16,12 +16,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <%@ include file = "header.jsp" %>
 
-<form action="post?action=add" method="post">
+<form action="post?action=add" method="post" id="postform">
+<h2>发帖</h2>
 标题：<input type="text" name="title">
 <br>
-内容：<input type="text" name="content">
+内容：<textarea id="content" name="content" cols="45" rows="8"></textarea>
 <br>
-<input type="submit">
+<input type="submit" value="发帖">
 </form>
 
 <%@ include file = "bottom.jsp" %>

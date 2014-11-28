@@ -17,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ include file = "header.jsp" %>
 
 
-<form action="register" method="post" id="resfrom">
+<form action="register" method="post" id="resform">
+<h2>注册</h2>
 请输入用户名：<input type="text" name="name">
 <br>
 请输入密码：&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password1">
@@ -26,6 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 请输入Email:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email">
 <br>
+<br>
+<input type="reset" value="重置"/> 
 <input type="submit" value="注册">
 </form>
 

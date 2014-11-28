@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.xloger.bean.CommentBean;
 import com.xloger.dao.CommentDao;
+import com.xloger.tool.BrowseTool;
 import com.xloger.tool.MyTool;
 
 public class CommentServlet extends HttpServlet{
@@ -38,6 +39,9 @@ public class CommentServlet extends HttpServlet{
 		com.setContent(content);
 		com.setDate(MyTool.getDate());
 		com.setStatus(1);
+		com.setIp(MyTool.getRemortIP(req));
+		com.setAgent(BrowseTool.checkBrowse(req.getHeader("user-agent")));
+
 		
 		boolean i=comdao.addComment(com);
 		if(i){

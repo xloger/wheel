@@ -16,12 +16,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <%@ include file = "header.jsp" %>
 
-<p><a href="index.jsp">返回</a></p>
-<form action="login?action=login" method="post">
+<form action="login?action=login" method="post" id="loginform">
+<h2>登陆</h2>
 用户：<input type="text" name="name">
 <br>
 密码：<input type="password" name="password">
 <br>
+<br>
+<input type="reset" value="重置">
 <input type="submit" value="登陆">
 </form>
 

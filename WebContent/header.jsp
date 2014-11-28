@@ -11,7 +11,7 @@
 					<a href="register.jsp" class="topbutton">立即注册</a>
 				<% }else{ %>
 					<div id="welcome">
-					您好，用户<% out.print( ((UserBean)session.getAttribute("loginer")).getName() );%>
+					您好，用户<a href="user/<%=((UserBean)session.getAttribute("loginer")).getID() %>"><% out.print( ((UserBean)session.getAttribute("loginer")).getName() );%></a>
 					<br>
 					<a href="post.jsp">发帖</a>&nbsp;&nbsp;
 					<a href="login?action=logout">注销</a>
