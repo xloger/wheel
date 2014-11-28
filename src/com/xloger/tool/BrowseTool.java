@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class BrowseTool {
 	private final static String IE11="rv:11.0";
-	private final static String IE10="rv:10.0";
+	private final static String IE10="MSIE 10.0";
 	private final static String IE9="MSIE 9.0";
     private final static String IE8="MSIE 8.0";
     private final static String IE7="MSIE 7.0";
@@ -18,7 +18,7 @@ public class BrowseTool {
     private final static String OPERA="Opera";
     private final static String CHROME="Chrome";
     private final static String SAFARI="Safari";
-    private final static String OTHER="其它";
+    private final static String OTHER="其它浏览器";
 
     public static String checkBrowse(String userAgent){
         if(regex(OPERA, userAgent))return OPERA;
@@ -31,10 +31,10 @@ public class BrowseTool {
         if(regex(MAXTHON, userAgent))return MAXTHON;
         if(regex(IE11,userAgent))return "IE11";
         if(regex(IE10,userAgent))return "IE10";
-        if(regex(IE9,userAgent))return IE9;
-        if(regex(IE8,userAgent))return IE8;
-        if(regex(IE7,userAgent))return IE7;
-        if(regex(IE6,userAgent))return IE6;
+        if(regex(IE9,userAgent))return "IE9";
+        if(regex(IE8,userAgent))return "IE8";
+        if(regex(IE7,userAgent))return "IE7";
+        if(regex(IE6,userAgent))return "IE6";
         return OTHER;
     }
     public static boolean regex(String regex,String str){
