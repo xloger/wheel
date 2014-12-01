@@ -1,5 +1,8 @@
 package com.xloger.bean;
 
+import com.xloger.tool.BrowseTool;
+import com.xloger.tool.MyTool;
+
 public class CommentBean {
 	private int ID;
 	private int post_ID;
@@ -31,7 +34,7 @@ public class CommentBean {
 		return content;
 	}
 	public void setContent(String content) {
-		this.content = content;
+		this.content = MyTool.changeHTML(content);
 	}
 	public java.sql.Timestamp getDate() {
 		return date;
@@ -52,7 +55,7 @@ public class CommentBean {
 		this.ip = ip;
 	}
 	public String getAgent() {
-		return agent;
+		return BrowseTool.checkBrowse(agent);
 	}
 	public void setAgent(String agent) {
 		this.agent = agent;

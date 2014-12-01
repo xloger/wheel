@@ -40,7 +40,7 @@ public class CommentServlet extends HttpServlet{
 		com.setDate(MyTool.getDate());
 		com.setStatus(1);
 		com.setIp(MyTool.getRemortIP(req));
-		com.setAgent(BrowseTool.checkBrowse(req.getHeader("user-agent")));
+		com.setAgent(req.getHeader("user-agent"));
 
 		
 		boolean i=comdao.addComment(com);

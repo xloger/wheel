@@ -1,5 +1,7 @@
 package com.xloger.bean;
 
+import com.xloger.tool.MyTool;
+
 public class PostBean {
 	private int ID;
 	private String author;
@@ -23,13 +25,13 @@ public class PostBean {
 		return title;
 	}
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = MyTool.changeHTML(title);
 	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
-		this.content = content;
+		this.content = MyTool.changeHTML(content);
 	}
 	public java.sql.Timestamp getDate() {
 		return date;
