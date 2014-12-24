@@ -16,7 +16,7 @@ import com.xloger.tool.MyTool;
 public class RegisterServlet extends HttpServlet{
 
 	/**
-	 * 
+	 * 处理注册表单的Servlet
 	 */
 	private static final long serialVersionUID = -1684962880754078008L;
 

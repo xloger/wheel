@@ -8,6 +8,7 @@ import com.xloger.bean.CommentBean;
 import com.xloger.bean.DbBean;
 
 public class CommentDao {
+	//添加评论，成功则返回相应ID（true），否则返回false
 	public boolean addComment(CommentBean com){
 		DbBean db=new DbBean();
 		boolean i=false;
@@ -35,6 +36,7 @@ public class CommentDao {
 		return i;
 	}
 	
+	//返回所有回帖，返回一个存贮所有回帖对象的List
 	public List<CommentBean> showComment(int post_id){
 		DbBean db=new DbBean();
 		List<CommentBean> comlist=new ArrayList<CommentBean>();
@@ -54,7 +56,7 @@ public class CommentDao {
 				comlist.add(com);
 			}
 		} catch (Exception e) {
-			System.out.println("显示所有文章出错");
+			System.out.println("返回所有回帖出错");
 			e.printStackTrace();
 		}
 		

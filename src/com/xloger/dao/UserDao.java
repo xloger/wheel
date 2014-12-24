@@ -6,6 +6,7 @@ import com.xloger.bean.DbBean;
 import com.xloger.bean.UserBean;
 
 public class UserDao {
+	//查询是否有名为name的ID，有则返回此用户ID，否则返回0
 	public int searchId(String name){
 		DbBean db=new DbBean();
 		try {
@@ -22,7 +23,7 @@ public class UserDao {
 		return 0;
 	}
 	
-	
+	//添加用户，成功则返回用户ID（true），失败则返回false
 	public boolean addUser(UserBean us){
 		boolean i = false;
 		try {
@@ -45,7 +46,7 @@ public class UserDao {
 		return i;
 	}
 	
-	
+	//获取用户信息，成功则返回指定ID的用户对象，失败则返回null
 	public UserBean getUser(String name){
 		try {
 			DbBean db=new DbBean();

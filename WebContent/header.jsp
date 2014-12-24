@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.xloger.bean.UserBean"%>
 
+<img src="http://static.u148.net/images/gotop.gif" style="position: fixed; right: 0px; bottom: 95px; cursor: pointer;" onclick="scroll(0,0)">
+
 <div class="center">
             <div class="top">
             <a href="index.jsp">logo</a>           

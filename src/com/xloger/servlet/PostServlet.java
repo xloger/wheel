@@ -17,7 +17,8 @@ import com.xloger.tool.MyTool;
 public class PostServlet extends HttpServlet{
 
 	/**
-	 * 
+	 * 处理发帖页面的Servlet
+	 * 拥有“发帖”，“删帖”（暂未实现）功能
 	 */
 	private static final long serialVersionUID = -5360898663819585210L;
 

@@ -15,7 +15,7 @@ import com.xloger.tool.MyTool;
 public class PServlet extends HttpServlet{
 
 	/**
-	 * 
+	 * 通过获取帖子网址来载入帖子内容，将帖子信息存入“po”的req，并转发到实现页面“/p.jsp”
 	 */
 	private static final long serialVersionUID = -1337257924004998983L;
 

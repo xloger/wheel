@@ -20,7 +20,7 @@
 List<PostBean> polist=IndexFunction.showPost();
 if(polist==null||polist.size()==0){
 %>
-	<p>没有帖子</p>
+	<p style="text-align: center;">没有帖子</p>
 <%
 }else {
 	int i=0;

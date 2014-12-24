@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 List<CommentBean> comlist=IndexFunction.showComment(((PostBean)request.getAttribute("po")).getID());
 if(comlist==null||comlist.size()==0){
 %>
-	<h3>没有回帖</h3>
+	<h3 style="text-align: center;">没有回帖</h3>
 	<hr>
 <%
 }else {
@@ -68,7 +68,7 @@ if(comlist==null||comlist.size()==0){
 	</form>
 	
 <% }else{ %>
-	<p>请先登录再回帖</p>
+	<p style="text-align: center;">请先登录再回帖</p>
 <% } %>
 
 <%@ include file = "bottom.jsp" %>

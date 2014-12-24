@@ -15,7 +15,7 @@ import com.xloger.dao.PostDao;
 public class IndexServlet extends HttpServlet{
 
 	/**
-	 * 
+	 * 显示首页所有帖子
 	 */
 	private static final long serialVersionUID = -4933562409391193497L;
 

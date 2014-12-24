@@ -1,7 +1,6 @@
 package com.xloger.bean;
 
 import com.xloger.tool.BrowseTool;
-import com.xloger.tool.MyTool;
 
 public class CommentBean {
 	private int ID;
@@ -34,7 +33,7 @@ public class CommentBean {
 		return content;
 	}
 	public void setContent(String content) {
-		this.content = MyTool.changeHTML(content);
+		this.content =content;
 	}
 	public java.sql.Timestamp getDate() {
 		return date;

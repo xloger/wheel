@@ -8,6 +8,7 @@ import com.xloger.bean.DbBean;
 import com.xloger.bean.PostBean;
 
 public class PostDao {
+	//添加一个帖子，成功则返回帖子ID（true），失败则返回false
 	public boolean addPost(PostBean po){
 		DbBean db=new DbBean();
 		boolean i=false;
@@ -24,12 +25,13 @@ public class PostDao {
 						+po.getStatus()
 						+ "')");
 		} catch (Exception e) {
-			System.out.println("添加文章出错");
+			System.out.println("添加帖子出错");
 			e.printStackTrace();
 		}
 		return i;
 	}
 	
+	//返回所有帖子，返回一个拥有全部帖子对象的List
 	public List<PostBean> showPost(){
 		DbBean db=new DbBean();
 		List<PostBean> postlist=new ArrayList<PostBean>();
@@ -47,7 +49,7 @@ public class PostDao {
 				postlist.add(po);
 			}
 		} catch (Exception e) {
-			System.out.println("显示所有文章出错");
+			System.out.println("返回所有帖子出错");
 			e.printStackTrace();
 		}
 		
@@ -55,6 +57,7 @@ public class PostDao {
 		return postlist;
 	}
 	
+	//获取指定ID的帖子信息，成功返回指定ID的对象，失败则返回null
 	public PostBean getPost(int id){
 		DbBean db=new DbBean();
 		try {

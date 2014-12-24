@@ -15,7 +15,8 @@ import com.xloger.dao.UserDao;
 public class LoginServlet extends HttpServlet{
 
 	/**
-	 * 
+	 * 处理登陆页面的Servlet
+	 * 拥有“判断用户是否登陆”，“登陆”，“登出”三个功能。
 	 */
 	private static final long serialVersionUID = -7942557820347166894L;
 

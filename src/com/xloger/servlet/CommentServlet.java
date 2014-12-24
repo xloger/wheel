@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.xloger.bean.CommentBean;
 import com.xloger.dao.CommentDao;
-import com.xloger.tool.BrowseTool;
 import com.xloger.tool.MyTool;
 
 public class CommentServlet extends HttpServlet{
 
 	/**
-	 * 
+	 * 处理回帖表单的Servlet
 	 */
 	private static final long serialVersionUID = 7586838524910497722L;
 
