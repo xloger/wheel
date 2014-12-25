@@ -1,5 +1,6 @@
 package com.xloger.bean;
 
+import com.xloger.dao.UserDao;
 import com.xloger.tool.BrowseTool;
 
 public class CommentBean {
@@ -23,8 +24,10 @@ public class CommentBean {
 	public void setPost_ID(int post_ID) {
 		this.post_ID = post_ID;
 	}
-	public int getAuthor_ID() {
-		return author_ID;
+	public UserBean getAuthor_ID() {
+		UserDao udao=new UserDao();
+		UserBean us=udao.getUser(author_ID);
+		return us;
 	}
 	public void setAuthor_ID(int author_ID) {
 		this.author_ID = author_ID;

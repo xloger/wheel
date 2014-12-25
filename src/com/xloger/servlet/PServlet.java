@@ -1,6 +1,7 @@
 package com.xloger.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xloger.bean.CommentBean;
 import com.xloger.bean.PostBean;
+import com.xloger.dao.CommentDao;
 import com.xloger.dao.PostDao;
 import com.xloger.tool.MyTool;
 
@@ -31,8 +34,11 @@ public class PServlet extends HttpServlet{
 		PostDao pdao=new PostDao();
 		int pid=Integer.parseInt(MyTool.getUrlId(req));
 		PostBean po=pdao.getPost(pid);
-
 		req.setAttribute("po", po);
+		
+		CommentDao comdao=new CommentDao();
+		List<CommentBean> comlist=comdao.showComment(pid);
+		req.setAttribute("comlist", comlist);
 		
 		RequestDispatcher rd;
 		rd = req.getRequestDispatcher("/p.jsp");

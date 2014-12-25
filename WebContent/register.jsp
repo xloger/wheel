@@ -19,13 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <form action="register" method="post" id="resform"  autocomplete="on">
 <h2>注册</h2>
-请输入用户名：<input type="text" name="name" required="required" pattern="^[a-zA-Z0-9_]{6,16}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
+<spean>请输入用户名：</spean> <input type="text" name="name" required="required" pattern="^[a-zA-Z0-9_]{6,16}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
 <br>
-请输入密码：&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password1" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
+<spean>请输入密码：</spean> <input type="password" name="password1" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
 <br>
-再次输入密码：<input type="password" name="password2" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
+<spean>再次输入密码：</spean> <input type="password" name="password2" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
 <br>
-请输入Email:&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" required="required">
+<spean>请输入Email:</spean> <input type="email" name="email" required="required">
 <br>
 <br>
 <input type="reset" value="重置"/> 

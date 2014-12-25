@@ -1,5 +1,6 @@
 package com.xloger.bean;
 
+import com.xloger.dao.UserDao;
 import com.xloger.tool.MyTool;
 
 public class PostBean {
@@ -15,8 +16,10 @@ public class PostBean {
 	public void setID(int iD) {
 		ID = iD;
 	}
-	public String getAuthor() {
-		return author;
+	public UserBean getAuthor() {
+		UserDao udao=new UserDao();
+		UserBean us=udao.getUser(author);
+		return us;
 	}
 	public void setAuthor(String author) {
 		this.author = author;

@@ -2,7 +2,7 @@
 * @Author: xloger
 * @Date:   2014-11-27 10:41:21
 * @Last Modified by:   anchen
-* @Last Modified time: 2014-11-27 18:49:29
+* @Last Modified time: 2014-12-25 17:14:21
 */
 body {
     font-family:  "Segeo UI Mono", "Hiragino Sans GB", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "Droid Sans Fallback", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei", "Apple LiGothic Medium", "SimHei", "ST Heiti", "WenQuanYi Zen Hei Sharp", Sans;
@@ -25,6 +25,10 @@ form {
 }
 form h2 {
 	font-size:35px;
+}
+form spean {
+	display:inline-block;
+    width: 150px;
 }
 input[type=text],input[type=password],input[type=email] {
 	border:1px solid #777;
@@ -139,6 +143,10 @@ input[type=reset]:hover,input[type=submit]:hover,input[type=button]:hover {
 #loginform input[type=reset],#loginform input[type=submit] {
 	margin-left:10%;
 }
+#loginform spean {
+    width: 70px;
+}
+
 /*发帖部分*/
 #postform {
 	padding-top:30px;

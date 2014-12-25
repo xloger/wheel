@@ -1,5 +1,4 @@
 <%@page import="com.xloger.tool.MyTool"%>
-<%@page import="com.xloger.function.IndexFunction"%>
 <%@page import="com.xloger.bean.CommentBean"%>
 <%@page import="com.xloger.bean.PostBean"%>
 <%@page import="com.xloger.bean.UserBean"%>
@@ -24,13 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="mainpo">
 <h2>${po.getTitle() }</h2>
-<p>发帖人：${po.getAuthor() } <span>发帖时间：${po.getDate() }</span> </p>
+<p>发帖人：${po.getAuthor().getName() } <span>发帖时间：${po.getDate() }</span> </p>
 <pre>${po.getContent() }</pre>
 </div>
 <hr>
 
 <%
-List<CommentBean> comlist=IndexFunction.showComment(((PostBean)request.getAttribute("po")).getID());
+List<CommentBean> comlist=(List<CommentBean>)request.getAttribute("comlist");
 if(comlist==null||comlist.size()==0){
 %>
 	<h3 style="text-align: center;">没有回帖</h3>
@@ -43,7 +42,7 @@ if(comlist==null||comlist.size()==0){
 %>
 
 	<div class="compo">
-	<p>回帖人：<%=com.getAuthor_ID() %>
+	<p>回帖人：<%=com.getAuthor_ID().getName() %>
 		<span>时间：<%=com.getDate() %></span>
 		<span>ip：<%=com.getIp() %></span>
 		<span>来自：<%=com.getAgent() %></span></p>
