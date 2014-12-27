@@ -4,6 +4,10 @@
 * @Last Modified by:   anchen
 * @Last Modified time: 2014-12-25 17:14:21
 */
+* {
+	text-shadow: 0 0 5px #f96;
+}
+
 body {
     font-family:  "Segeo UI Mono", "Hiragino Sans GB", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "Droid Sans Fallback", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei", "Apple LiGothic Medium", "SimHei", "ST Heiti", "WenQuanYi Zen Hei Sharp", Sans;
     font-size: 16px;
