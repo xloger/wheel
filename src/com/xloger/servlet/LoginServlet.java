@@ -73,13 +73,13 @@ public class LoginServlet extends HttpServlet{
 		
 		RequestDispatcher rd;
 		if (jump==1) {
-			rd = req.getRequestDispatcher("index.jsp");
+			rd = req.getRequestDispatcher("index");
 			rd.forward(req, resp);
 		} else if(jump==2){
-			rd = req.getRequestDispatcher("login.jsp");
+			rd = req.getRequestDispatcher("login");
 			rd.forward(req, resp);
 		} else if(jump==3){
-			rd = req.getRequestDispatcher("register.jsp");
+			rd = req.getRequestDispatcher("register");
 			rd.forward(req, resp);
 		}		
 	}
@@ -89,7 +89,7 @@ public class LoginServlet extends HttpServlet{
 		HttpSession session=req.getSession();
 		session.removeAttribute("loginer");
 		RequestDispatcher rd;
-		rd = req.getRequestDispatcher("index.jsp");
+		rd = req.getRequestDispatcher("index");
 		rd.forward(req, resp);
 	}
 

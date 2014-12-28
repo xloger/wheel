@@ -29,7 +29,7 @@ if(polist==null||polist.size()==0){
 %>
 	<div class="posts">
 	<a class="postname" href="p/<%=po.getID()%>"><%=po.getTitle() %></a>
-	<span>作者：<%=po.getAuthor().getName()%></span>
+	<span>作者：<%=po.getAuthor() %></span>
 	<p>发布时间：<%=po.getDate() %></p>
 	</div>
 	<hr>
