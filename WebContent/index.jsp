@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp" flush="true"/>
 
 
 <%
@@ -39,6 +39,6 @@ if(polist==null||polist.size()==0){
 }
 %>
 
-<%@ include file = "bottom.jsp" %>
+<jsp:include page="bottom.jsp" flush="true"/>
 </body>
 </html>

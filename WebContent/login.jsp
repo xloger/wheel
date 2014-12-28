@@ -14,19 +14,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp" flush="true"/>
+
 
 <form action="login?action=login" method="post" id="loginform">
 <h2>登陆</h2>
+<!-- HTML5表单验证 
 <spean>用户：</spean> <input type="text" name="name"  required="required" pattern="^[a-zA-Z0-9_]{6,16}$" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
 <br>
 <spean>密码：</spean> <input type="password" name="password" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
+-->
+<spean>用户：</spean> <input type="text" name="name">
 <br>
-<br>
+<spean>密码：</spean> <input type="password" name="password">
+<% if(request.getAttribute("message")==null||"".equals(request.getAttribute("message"))){ %>
+	<p></p>
+<% }else{ %>
+	<p class="message"><%=request.getAttribute("message") %></p>
+<% } %>
 <input type="reset" value="重置">
 <input type="submit" value="登陆">
 </form>
 
-<%@ include file = "bottom.jsp" %>
+<jsp:include page="bottom.jsp" flush="true"/>
 </body>
 </html>

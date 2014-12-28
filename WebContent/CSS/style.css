@@ -12,7 +12,9 @@ body {
     font-family:  "Segeo UI Mono", "Hiragino Sans GB", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "Droid Sans Fallback", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei", "Apple LiGothic Medium", "SimHei", "ST Heiti", "WenQuanYi Zen Hei Sharp", Sans;
     font-size: 16px;
     margin: 0px;
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/02.jpg);
+    background-size: cover;
+	background-attachment: fixed;
 }
 
 a {color:rgba(255,255,255,0.9); text-decoration:none;text-shadow: 0 0 5px #FF6666;}
@@ -34,6 +36,12 @@ form spean {
 	display:inline-block;
     width: 150px;
 }
+.message {
+	text-align: center;
+	color:#FF6666;
+	text-shadow: 0 0 5px #f96;
+}
+
 input[type=text],input[type=password],input[type=email] {
 	border:1px solid #777;
 	background-color:rgba(255,255,255,0.7);
@@ -42,6 +50,7 @@ input[type=text],input[type=password],input[type=email] {
 	padding:3px 10px;
 	margin-left:10px;
 	color:#555;
+	font-size:16px;
 	text-shadow: 0 0 0 #000;
 }
 textarea {
@@ -50,6 +59,7 @@ textarea {
 	padding:3px 10px;
 	margin-left:10px;
 	color:#555;
+	font-size:16px;
 	text-shadow: 0 0 0 #000;
 }
 input:hover,textarea:hover {
@@ -231,3 +241,8 @@ input[type=reset]:hover,input[type=submit]:hover,input[type=button]:hover {
 }
 
 
+
+/*错误页面*/
+#error {
+	text-align: center;
+}

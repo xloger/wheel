@@ -14,11 +14,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp" flush="true"/>
 
 
 <form action="register" method="post" id="resform"  autocomplete="on">
 <h2>注册</h2>
+<!-- HTML5表单验证
 <spean>请输入用户名：</spean> <input type="text" name="name" required="required" pattern="^[a-zA-Z0-9_]{6,16}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
 <br>
 <spean>请输入密码：</spean> <input type="password" name="password1" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
@@ -26,12 +27,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <spean>再次输入密码：</spean> <input type="password" name="password2" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
 <br>
 <spean>请输入Email:</spean> <input type="email" name="email" required="required">
+ -->
+<spean>请输入用户名：</spean> <input type="text" name="name">
 <br>
+<spean>请输入密码：</spean> <input type="password" name="password1">
 <br>
+<spean>再次输入密码：</spean> <input type="password" name="password2">
+<br>
+<spean>请输入Email:</spean> <input type="text" name="email">
+<% if(request.getAttribute("message")==null||"".equals(request.getAttribute("message"))){ %>
+	<p></p>
+<% }else{ %>
+	<p class="message"><%=request.getAttribute("message") %></p>
+<% } %>
 <input type="reset" value="重置"/> 
 <input type="submit" value="注册">
 </form>
 
-<%@ include file = "bottom.jsp" %>
+<jsp:include page="bottom.jsp" flush="true"/>
 </body>
 </html>

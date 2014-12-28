@@ -19,10 +19,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp" flush="true"/>
+
 
 <div class="mainpo">
-<h2>${po.getTitle() }</h2>
+<h2><a href="p/${po.getID() }">${po.getTitle() }</a></h2>
 <p>发帖人：<a href="user/${po.getAuthor().getID() }">${po.getAuthor().getName() }</a> <span>发帖时间：${po.getDate() }</span> </p>
 <pre>${po.getContent() }</pre>
 </div>
@@ -70,6 +71,6 @@ if(comlist==null||comlist.size()==0){
 	<p style="text-align: center;">请先登录再回帖</p>
 <% } %>
 
-<%@ include file = "bottom.jsp" %>
+<jsp:include page="bottom.jsp" flush="true"/>
 </body>
 </html>

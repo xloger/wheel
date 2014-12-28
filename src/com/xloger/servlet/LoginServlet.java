@@ -53,7 +53,8 @@ public class LoginServlet extends HttpServlet{
 			throws ServletException, IOException {
 		UserDao udao=new UserDao();
 		UserBean us=new UserBean();
-		int jump=0; //判断跳转页面
+		boolean jump=false; //判断跳转页面
+		String message=""; //错误信息
 		String name=req.getParameter("name");
 		String psw=req.getParameter("password");
 		us=udao.getUser(name);
@@ -61,27 +62,23 @@ public class LoginServlet extends HttpServlet{
 			if(us.getPassword().equals(psw)){
 				HttpSession session=req.getSession();
 				session.setAttribute("loginer", us);
-				jump=1;
+				jump=true;
 			}else{
-				System.out.println("密码不一致");
-				jump=2;
+				message="密码错误";
 			}
 		}else {
-			System.out.println("用户不存在");
-			jump=3;
+			message="用户不存在";
 		}
 		
 		RequestDispatcher rd;
-		if (jump==1) {
+		if (jump) {
 			rd = req.getRequestDispatcher("index");
 			rd.forward(req, resp);
-		} else if(jump==2){
-			rd = req.getRequestDispatcher("login");
+		} else {
+			req.setAttribute("message", message);
+			rd = req.getRequestDispatcher("login.jsp");
 			rd.forward(req, resp);
-		} else if(jump==3){
-			rd = req.getRequestDispatcher("register");
-			rd.forward(req, resp);
-		}		
+		}
 	}
 	
 	private void logout(HttpServletRequest req, HttpServletResponse resp)
