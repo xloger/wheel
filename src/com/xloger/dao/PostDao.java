@@ -14,7 +14,7 @@ public class PostDao {
 		boolean i=false;
 		try {
 			i=db.insert("insert into wheel_posts(post_author,post_title,post_content,post_date,post_status) values('"
-						+ po.getAuthor()
+						+ po.getAuthor().getName()
 						+"','"
 						+po.getTitle()
 						+"','"

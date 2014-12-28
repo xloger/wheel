@@ -16,7 +16,7 @@ public class CommentDao {
 			i=db.insert("insert into wheel_comments(comment_post_ID,comment_author_ID,comment_content,comment_date,comment_status,comment_ip,comment_agent) values('"
 					+ com.getPost_ID()
 					+"','"
-					+com.getAuthor_ID()
+					+com.getAuthor_ID().getID()
 					+"','"
 					+com.getContent()
 					+"','"
@@ -26,7 +26,7 @@ public class CommentDao {
 					+"','"
 					+com.getIp()
 					+"','"
-					+com.getAgent()
+					+com.cunAgent()
 					+ "')");
 		} catch (Exception e) {
 			System.out.println("添加回帖出错");

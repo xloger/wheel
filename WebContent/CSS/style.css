@@ -15,7 +15,7 @@ body {
     background-image: url(../images/bg.jpg);
 }
 
-a {color:rgba(255,255,255,0.9); text-decoration:none;}
+a {color:rgba(255,255,255,0.9); text-decoration:none;text-shadow: 0 0 5px #FF6666;}
 a:visited {color:rgba(255,255,255,0.9);}
 a:hover {color:#D4DA16;}
 a:focus {outline:thin dotted;}
@@ -42,7 +42,7 @@ input[type=text],input[type=password],input[type=email] {
 	padding:3px 10px;
 	margin-left:10px;
 	color:#555;
-	
+	text-shadow: 0 0 0 #000;
 }
 textarea {
 	border:1px solid #777;
@@ -50,6 +50,7 @@ textarea {
 	padding:3px 10px;
 	margin-left:10px;
 	color:#555;
+	text-shadow: 0 0 0 #000;
 }
 input:hover,textarea:hover {
 	border:1px solid #555;
@@ -117,6 +118,15 @@ input[type=reset]:hover,input[type=submit]:hover,input[type=button]:hover {
     text-align: right;
     font-size: 20px;
     line-height: 40px;
+}
+
+#logo {
+	margin-left:30px;
+	line-height:120px; 
+    overflow:hidden;
+    float:left;
+    font-size:50px;
+    font-family: "Lucida Calligraphy";
 }
 
 /*content部分*/

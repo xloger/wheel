@@ -54,7 +54,7 @@ public class PostServlet extends HttpServlet{
 		boolean i=pdao.addPost(po);
 		RequestDispatcher rd;
 		if (i==true) {
-			rd = req.getRequestDispatcher("index.jsp");
+			rd = req.getRequestDispatcher("index");
 			rd.forward(req, resp);
 		}
 		

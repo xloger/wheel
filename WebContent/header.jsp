@@ -6,7 +6,7 @@
 
 <div class="center">
             <div class="top">
-            <a href="index">logo</a>           
+            <a href="index"><div id="logo">logo</div></a>           
                 <% 
 				if(session.getAttribute("loginer")==null){ %>
                 	<a href="login.jsp" class="topbutton">马上登陆</a>

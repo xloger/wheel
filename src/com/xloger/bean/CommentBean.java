@@ -59,6 +59,9 @@ public class CommentBean {
 	public String getAgent() {
 		return BrowseTool.checkBrowse(agent);
 	}
+	public String cunAgent() {
+		return agent;
+	}
 	public void setAgent(String agent) {
 		this.agent = agent;
 	}

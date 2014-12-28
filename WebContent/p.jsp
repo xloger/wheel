@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="mainpo">
 <h2>${po.getTitle() }</h2>
-<p>发帖人：${po.getAuthor().getName() } <span>发帖时间：${po.getDate() }</span> </p>
+<p>发帖人：<a href="user/${po.getAuthor().getID() }">${po.getAuthor().getName() }</a> <span>发帖时间：${po.getDate() }</span> </p>
 <pre>${po.getContent() }</pre>
 </div>
 <hr>
@@ -42,7 +42,7 @@ if(comlist==null||comlist.size()==0){
 %>
 
 	<div class="compo">
-	<p>回帖人：<%=com.getAuthor_ID().getName() %>
+	<p>回帖人：<a href="user/<%=com.getAuthor_ID().getID() %>"><%=com.getAuthor_ID().getName() %></a>
 		<span>时间：<%=com.getDate() %></span>
 		<span>ip：<%=com.getIp() %></span>
 		<span>来自：<%=com.getAgent() %></span></p>
