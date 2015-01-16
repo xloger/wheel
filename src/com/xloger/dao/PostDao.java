@@ -14,7 +14,7 @@ public class PostDao {
 		boolean i=false;
 		try {
 			i=db.insert("insert into wheel_posts(post_author,post_title,post_content,post_date,post_status) values('"
-						+ po.getAuthor().getName()
+						+ po.getAuthor().getID()
 						+"','"
 						+po.getTitle()
 						+"','"
@@ -31,11 +31,16 @@ public class PostDao {
 		return i;
 	}
 	
-	//返回所有帖子，返回一个拥有全部帖子对象的List
-	public List<PostBean> showPost(){
+	//返回该uid的所有帖子，假如uid为0返回所有帖子。
+	public List<PostBean> showPost(int uid){
 		DbBean db=new DbBean();
 		List<PostBean> postlist=new ArrayList<PostBean>();
-		String sql="select * from wheel_posts";
+		String sql;
+		if(uid==0){
+			sql="select * from wheel_posts";
+		}else{
+			sql="select * from wheel_posts where post_author ="+uid;
+		}
 		try {
 			ResultSet rs=db.query(sql);
 			while(rs.next()){

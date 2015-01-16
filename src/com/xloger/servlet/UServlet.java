@@ -10,14 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.xloger.bean.PostBean;
+import com.xloger.bean.UserBean;
 import com.xloger.dao.PostDao;
+import com.xloger.dao.UserDao;
+import com.xloger.tool.MyTool;
 
-public class IndexServlet extends HttpServlet{
+public class UServlet extends HttpServlet{
 
 	/**
-	 * 显示首页所有帖子
+	 * 
 	 */
-	private static final long serialVersionUID = -4933562409391193497L;
+	private static final long serialVersionUID = -8797169169751598096L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -28,13 +31,20 @@ public class IndexServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		int uid=Integer.parseInt(MyTool.getUrlId(req));
+		UserDao udao=new UserDao();
 		PostDao pdao=new PostDao();
-		List<PostBean> polist=pdao.showPost(0);
-		req.setAttribute("polist", polist);
+		
+		UserBean us=udao.getUser(uid);
+		req.setAttribute("userpage_userinfo", us);
+		
+		List<PostBean> userlist=pdao.showPost(uid);
+		req.setAttribute("userpage_userlist", userlist);
+		
+		
 		RequestDispatcher rd;
-		rd = req.getRequestDispatcher("index.jsp");
+		rd = req.getRequestDispatcher("/u.jsp");
 		rd.forward(req, resp);
-
 	}
-	
+
 }

@@ -8,6 +8,6 @@
 <title>跳转</title>
 </head>
 <body>
-
+<p>正在获取元气中......</p>
 </body>
 </html>

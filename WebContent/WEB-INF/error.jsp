@@ -16,8 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="../header.jsp" flush="true"/>
 
-<h2>理论上，出错了？</h2>
-<p><%=exception.getMessage() %></p>
+<h2>理论上讲，出错了：</h2>
+<pre><%=exception.getMessage() %></pre>
 
 <jsp:include page="../bottom.jsp" flush="true"/>
 </body>

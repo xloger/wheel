@@ -18,7 +18,7 @@ public class PostBean {
 	}
 	public UserBean getAuthor() {
 		UserDao udao=new UserDao();
-		UserBean us=udao.getUser(author);
+		UserBean us=udao.getUser(Integer.parseInt(author));
 		return us;
 	}
 	public void setAuthor(String author) {

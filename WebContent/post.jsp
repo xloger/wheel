@@ -1,3 +1,4 @@
+<%@page import="com.xloger.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -23,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 内容：<textarea id="content" name="content" cols="45" rows="8"></textarea>
 <br>
+<input type="hidden" name="author_id" value="<%=((UserBean)session.getAttribute("loginer")).getID() %>">
 <input type="submit" value="发帖">
 </form>
 

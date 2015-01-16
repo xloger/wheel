@@ -45,10 +45,11 @@ public class PostServlet extends HttpServlet{
 		PostBean po=new PostBean();
 		String title=req.getParameter("title");
 		String content=req.getParameter("content");
+		String author_id=req.getParameter("author_id");
 		
 		po.setTitle(title);
 		po.setContent(content);
-		po.setAuthor(((UserBean)session.getAttribute("loginer")).getName());
+		po.setAuthor(author_id);
 		po.setDate(MyTool.getDate());
 		po.setStatus(1);
 		boolean i=pdao.addPost(po);
