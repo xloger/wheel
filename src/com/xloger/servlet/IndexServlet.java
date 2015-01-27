@@ -29,8 +29,26 @@ public class IndexServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		PostDao pdao=new PostDao();
-		List<PostBean> polist=pdao.showPost(0);
+		int page=5; //一页显示多少帖子
+		int pagesum; //一共多少页
+		int pagenow=1; //当前页
+		//计算要用多少页
+		int pNum=pdao.showNum();
+		int tempyu=pNum%page;
+		if(tempyu==0){
+			pagesum=pNum/page;
+		}else {
+			pagesum=pNum/page+1;
+		}
+
+		if(req.getParameter("jumppage")!=null&&!"".equals(req.getParameter("jumppage"))){
+			pagenow=Integer.parseInt(req.getParameter("jumppage"));
+		}
+		
+		List<PostBean> polist=pdao.showPost((pagenow-1)*page,page);
 		req.setAttribute("polist", polist);
+		req.setAttribute("pagesum", pagesum);
+		req.setAttribute("pagenow", pagenow);
 		RequestDispatcher rd;
 		rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);

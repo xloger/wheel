@@ -62,6 +62,33 @@ public class PostDao {
 		return postlist;
 	}
 	
+	//返回指定部分的帖子列表
+	public List<PostBean> showPost(int begin,int num){
+		DbBean db=new DbBean();
+		List<PostBean> postlist=new ArrayList<PostBean>();
+		String sql;
+		sql="select * from wheel_posts where post_status =1 limit "+num+" offset "+begin;
+		try {
+			ResultSet rs=db.query(sql);
+			while(rs.next()){
+				PostBean po=new PostBean();
+				po.setID(rs.getInt(1));
+				po.setAuthor(rs.getString(2));
+				po.setTitle(rs.getString(3));
+				po.setContent(rs.getString(4));
+				po.setDate(rs.getTimestamp(5));
+				po.setStatus(rs.getInt(6));
+				postlist.add(po);
+			}
+		} catch (Exception e) {
+			System.out.println("返回指定部分帖子出错");
+			e.printStackTrace();
+		}
+		
+		
+		return postlist;
+	}
+	
 	//获取指定ID的帖子信息，成功返回指定ID的对象，失败则返回null
 	public PostBean getPost(int id){
 		DbBean db=new DbBean();
@@ -84,5 +111,22 @@ public class PostDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	//返回现有帖子的数量
+	public int showNum(){
+		DbBean db=new DbBean();
+		try {
+			ResultSet re=db.query("select * from wheel_posts where post_status = 1");
+			boolean b=re.last(); //把re指到最后，然后获取该行的编号
+			if(b==true){
+				//=。=只是为了消除b未引用的报错
+			}
+			return re.getRow();
+		} catch (Exception e) {
+			System.out.println("显示帖子数量出错");
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

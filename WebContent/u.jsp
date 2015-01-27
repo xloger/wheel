@@ -24,7 +24,10 @@
 		<div class="top">
 			<img alt="用户头像" src=""> <span>用户名字</span>
 			<% if(session.getAttribute("loginer")!=null&&((UserBean)session.getAttribute("loginer")).getID()==((UserBean)request.getAttribute("userpage_userinfo")).getID()){ %>
-			<span>更改头像</span>
+			<form action="upheadimg" method="post" enctype="multipart/form-data">
+				上传头像：<input type="file" name="headimg" accept="image/*"/>
+				<input type="submit" value="上传" />
+			</form>
 			<% } %>
 		</div>
 

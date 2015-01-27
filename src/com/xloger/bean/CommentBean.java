@@ -2,7 +2,10 @@ package com.xloger.bean;
 
 import com.xloger.dao.UserDao;
 import com.xloger.tool.BrowseTool;
-
+	/**
+	 * Agent存入为原生UA信息，暂时有些Bug
+	 *
+	 */
 public class CommentBean {
 	private int ID;
 	private int post_ID;

@@ -10,6 +10,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  	<!-- 错误处理 -->
   	<error-page>
 		<error-code>404</error-code>
 		<location>/404.jsp</location>
@@ -19,6 +20,7 @@
 		<location>/WEB-INF/error.jsp</location>
 	</error-page>
 	
+	<!-- Servlet页面 -->
   	<servlet>
 		<servlet-name>index</servlet-name>
 		<servlet-class>com.xloger.servlet.IndexServlet</servlet-class>
@@ -63,6 +65,16 @@
 		<url-pattern>/comment</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>upheadimg</servlet-name>
+		<servlet-class>com.xloger.servlet.UpHeadimgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>upheadimg</servlet-name>
+		<url-pattern>/upheadimg</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 各种模板页面 -->
 	<servlet>
 		<servlet-name>p</servlet-name>
 		<servlet-class>com.xloger.servlet.PServlet</servlet-class>

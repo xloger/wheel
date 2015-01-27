@@ -36,6 +36,28 @@ if(polist==null||polist.size()==0){
 <%
 	i++;
 	}
+%>
+	<% 
+	int pagesum=Integer.parseInt(request.getAttribute("pagesum").toString());
+	int pagenow=Integer.parseInt(request.getAttribute("pagenow").toString());
+	%>
+	<div class="pagenav">
+	<p>一共<%=pagesum %>页,当前是第<%=pagenow %>页</p>
+	<% if(pagenow!=1) {%>
+		<spean><a href="index?jumppage=<%=pagenow-1 %>">上一页</a></spean>
+	<% }else { %>
+		<spean>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spean>
+	<% } %>
+	<% for(int pagei=1;pagei<=pagesum;pagei++){ %>
+	<spean><a href="index?jumppage=<%=pagei %>"><%=pagei %></a></spean>
+	<% } %>
+	<% if(pagenow<pagesum) {%>
+		<spean><a href="index?jumppage=<%=pagenow+1 %>">下一页</a></spean>
+	<% }else { %>
+		<spean>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spean>
+	<% } %>
+	</div>
+<%
 }
 %>
 
