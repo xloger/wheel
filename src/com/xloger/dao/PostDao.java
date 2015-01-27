@@ -13,7 +13,7 @@ public class PostDao {
 		DbBean db=new DbBean();
 		boolean i=false;
 		try {
-			i=db.insert("insert into wheel_posts(post_author,post_title,post_content,post_date,post_status) values('"
+			i=db.insert("insert into wheel_posts(post_author,post_title,post_content,post_date,post_status,post_comNum,post_lookNum,post_lastdate,post_lastuser) values('"
 						+ po.getAuthor().getID()
 						+"','"
 						+po.getTitle()
@@ -23,12 +23,32 @@ public class PostDao {
 						+po.getDate()
 						+"','"
 						+po.getStatus()
+						+"','"
+						+po.getComNum()
+						+"','"
+						+po.getLookNum()
+						+"','"
+						+po.getLastdate()
+						+"','"
+						+po.getLastuser()
 						+ "')");
 		} catch (Exception e) {
 			System.out.println("添加帖子出错");
 			e.printStackTrace();
 		}
 		return i;
+	}
+	
+	//更新帖子的信息
+	public void updatePost(PostBean po){
+		DbBean db=new DbBean();
+		String sql="update wheel_posts set post_status = "+po.getStatus()+", post_comNum = "+po.getComNum()+", post_lookNum = "+po.getLookNum()+", post_lastdate = '"+po.getLastdate()+"', post_lastuser = "+po.getLastuser()+" where ID = "+po.getID();
+		try {
+			db.update(sql);
+		} catch (Exception e) {
+			System.out.println("更新回帖信息出错");
+			e.printStackTrace();
+		}
 	}
 	
 	//返回该uid的所有帖子，假如uid为0返回所有帖子。
@@ -51,6 +71,10 @@ public class PostDao {
 				po.setContent(rs.getString(4));
 				po.setDate(rs.getTimestamp(5));
 				po.setStatus(rs.getInt(6));
+				po.setComNum(rs.getInt(7));
+				po.setLookNum(rs.getInt(8));
+				po.setLastdate(rs.getTimestamp(9));
+				po.setLastuser(rs.getString(10));
 				postlist.add(po);
 			}
 		} catch (Exception e) {
@@ -78,6 +102,10 @@ public class PostDao {
 				po.setContent(rs.getString(4));
 				po.setDate(rs.getTimestamp(5));
 				po.setStatus(rs.getInt(6));
+				po.setComNum(rs.getInt(7));
+				po.setLookNum(rs.getInt(8));
+				po.setLastdate(rs.getTimestamp(9));
+				po.setLastuser(rs.getString(10));
 				postlist.add(po);
 			}
 		} catch (Exception e) {
@@ -93,17 +121,25 @@ public class PostDao {
 	public PostBean getPost(int id){
 		DbBean db=new DbBean();
 		try {
-			ResultSet re=db.query("select * from wheel_posts where ID='"
+			ResultSet rs=db.query("select * from wheel_posts where ID='"
 					+id
 					+"'");
-			while(re.next()){
+			while(rs.next()){
 				PostBean po=new PostBean();
-				po.setID(re.getInt(1));
-				po.setAuthor(re.getString(2));
-				po.setTitle(re.getString(3));
-				po.setContent(re.getString(4));
-				po.setDate(re.getTimestamp(5));
-				po.setStatus(re.getInt(6));
+				po.setID(rs.getInt(1));
+				po.setAuthor(rs.getString(2));
+				po.setTitle(rs.getString(3));
+				po.setContent(rs.getString(4));
+				po.setDate(rs.getTimestamp(5));
+				po.setStatus(rs.getInt(6));
+				po.setComNum(rs.getInt(7));
+				po.setLookNum(rs.getInt(8));
+				po.setLastdate(rs.getTimestamp(9));
+				po.setLastuser(rs.getString(10));
+				
+				po.setLookNum(po.getLookNum()+1);
+				this.updatePost(po);
+				
 				return po;
 			}
 		} catch (Exception e) {
@@ -117,12 +153,12 @@ public class PostDao {
 	public int showNum(){
 		DbBean db=new DbBean();
 		try {
-			ResultSet re=db.query("select * from wheel_posts where post_status = 1");
-			boolean b=re.last(); //把re指到最后，然后获取该行的编号
+			ResultSet rs=db.query("select * from wheel_posts where post_status = 1");
+			boolean b=rs.last(); //把re指到最后，然后获取该行的编号
 			if(b==true){
 				//=。=只是为了消除b未引用的报错
 			}
-			return re.getRow();
+			return rs.getRow();
 		} catch (Exception e) {
 			System.out.println("显示帖子数量出错");
 			e.printStackTrace();

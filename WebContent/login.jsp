@@ -22,13 +22,13 @@
 	<form action="login?action=login" method="post" id="loginform">
 		<h2>登陆</h2>
 		<!-- HTML5表单验证 
-<spean>用户：</spean> <input type="text" name="name"  required="required" pattern="^[a-zA-Z0-9_]{6,16}$" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
+<span>用户：</span> <input type="text" name="name"  required="required" pattern="^[a-zA-Z0-9_]{6,16}$" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
 <br>
-<spean>密码：</spean> <input type="password" name="password" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
+<span>密码：</span> <input type="password" name="password" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
 -->
-		<spean>用户：</spean>
+		<span>用户：</span>
 		<input type="text" name="name"> <br>
-		<spean>密码：</spean>
+		<span>密码：</span>
 		<input type="password" name="password">
 		<%
 			if (request.getAttribute("message") == null

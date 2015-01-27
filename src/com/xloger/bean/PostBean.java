@@ -13,6 +13,10 @@ public class PostBean {
 	private String content;
 	private java.sql.Timestamp date;
 	private int status;
+	private int comNum;
+	private int lookNum;
+	private java.sql.Timestamp lastdate;
+	private String lastuser;
 	public int getID() {
 		return ID;
 	}
@@ -50,6 +54,30 @@ public class PostBean {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	public int getComNum() {
+		return comNum;
+	}
+	public void setComNum(int comNum) {
+		this.comNum = comNum;
+	}
+	public int getLookNum() {
+		return lookNum;
+	}
+	public void setLookNum(int lookNum) {
+		this.lookNum = lookNum;
+	}
+	public java.sql.Timestamp getLastdate() {
+		return lastdate;
+	}
+	public void setLastdate(java.sql.Timestamp lastdate) {
+		this.lastdate = lastdate;
+	}
+	public String getLastuser() {
+		return lastuser;
+	}
+	public void setLastuser(String lastuser) {
+		this.lastuser = lastuser;
 	}
 	
 }

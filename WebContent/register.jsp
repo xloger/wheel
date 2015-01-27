@@ -22,21 +22,21 @@
 	<form action="register" method="post" id="resform" autocomplete="on">
 		<h2>注册</h2>
 		<!-- HTML5表单验证
-<spean>请输入用户名：</spean> <input type="text" name="name" required="required" pattern="^[a-zA-Z0-9_]{6,16}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
+<span>请输入用户名：</span> <input type="text" name="name" required="required" pattern="^[a-zA-Z0-9_]{6,16}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的用户名')">
 <br>
-<spean>请输入密码：</spean> <input type="password" name="password1" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
+<span>请输入密码：</span> <input type="password" name="password1" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
 <br>
-<spean>再次输入密码：</spean> <input type="password" name="password2" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
+<span>再次输入密码：</span> <input type="password" name="password2" required="required" pattern="^[a-zA-Z][a-zA-Z0-9]{5,15}" oninvalid="setCustomValidity('请输入由字母和数字组合的，长度在6-16位的密码')">
 <br>
-<spean>请输入Email:</spean> <input type="email" name="email" required="required">
+<span>请输入Email:</span> <input type="email" name="email" required="required">
  -->
-		<spean>请输入用户名：</spean>
+		<span>请输入用户名：</span>
 		<input type="text" name="name"> <br>
-		<spean>请输入密码：</spean>
+		<span>请输入密码：</span>
 		<input type="password" name="password1"> <br>
-		<spean>再次输入密码：</spean>
+		<span>再次输入密码：</span>
 		<input type="password" name="password2"> <br>
-		<spean>请输入Email:</spean>
+		<span>请输入Email:</span>
 		<input type="text" name="email">
 		<%
 			if (request.getAttribute("message") == null

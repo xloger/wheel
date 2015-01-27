@@ -24,7 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="mainpo">
 <h2><a href="p/${po.getID() }">${po.getTitle() }</a></h2>
-<p>发帖人：<a href="user/${po.getAuthor().getID() }">${po.getAuthor().getName() }</a> <span>发帖时间：${po.getDate() }</span> </p>
+<p>发帖人：<a href="user/${po.getAuthor().getID() }">${po.getAuthor().getName() }</a> 
+<span>发帖时间：${po.getDate() }</span> 
+<span>回帖数量：${po.getComNum() }</span>
+</p>
 <pre>${po.getContent() }</pre>
 </div>
 <hr>

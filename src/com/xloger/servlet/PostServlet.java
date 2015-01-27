@@ -52,6 +52,10 @@ public class PostServlet extends HttpServlet{
 		po.setAuthor(author_id);
 		po.setDate(MyTool.getDate());
 		po.setStatus(1);
+		po.setComNum(0);
+		po.setLookNum(0);
+		po.setLastdate(po.getDate());
+		po.setLastuser(null);
 		boolean i=pdao.addPost(po);
 		RequestDispatcher rd;
 		if (i==true) {

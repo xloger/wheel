@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.xloger.bean.CommentBean;
+import com.xloger.bean.PostBean;
 import com.xloger.dao.CommentDao;
+import com.xloger.dao.PostDao;
 import com.xloger.tool.MyTool;
 
 public class CommentServlet extends HttpServlet{
@@ -40,6 +42,13 @@ public class CommentServlet extends HttpServlet{
 		com.setStatus(1);
 		com.setIp(MyTool.getRemortIP(req));
 		com.setAgent(req.getHeader("user-agent"));
+		
+		PostDao pdao=new PostDao();
+		PostBean po=pdao.getPost(post_id);
+		po.setComNum(po.getComNum()+1);
+		po.setLastdate(com.getDate());
+		po.setLastuser(com.getAuthor_ID().getName());
+		pdao.updatePost(po);
 
 		
 		boolean i=comdao.addComment(com);
