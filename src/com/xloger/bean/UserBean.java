@@ -40,6 +40,9 @@ public class UserBean {
 		this.email = email;
 	}
 	public String getImage() {
+		if(image==null||"".equals(image)){
+			image="images/headimg/0.jpg";
+		}
 		return image;
 	}
 	public void setImage(String image) {

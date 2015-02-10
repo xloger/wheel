@@ -44,6 +44,18 @@ public class UserDao {
 		}
 		return i;
 	}
+	
+	//更新用户可改的信息
+	public void updateUser(UserBean us){
+		DbBean db=new DbBean();
+		String sql="update wheel_users set user_password = "+us.getPassword()+",user_image = '"+us.getImage()+"' where ID = "+us.getID();
+		try {
+			db.update(sql);
+		} catch (Exception e) {
+			System.out.println("更新用户信息出错");
+			e.printStackTrace();
+		}
+	}
 
 	// 获取用户信息，成功则返回指定ID的用户对象，失败则返回null
 	public UserBean getUser(String name) {

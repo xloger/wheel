@@ -52,7 +52,7 @@ if(polist==null||polist.size()==0){
 	<% if(pagenow!=1) {%>
 		<span><a href="index?jumppage=<%=pagenow-1 %>">上一页</a></span>
 	<% }else { %>
-		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 	<% } %>
 	<% for(int pagei=1;pagei<=pagesum;pagei++){ %>
 	<span><a href="index?jumppage=<%=pagei %>"><%=pagei %></a></span>
@@ -60,7 +60,7 @@ if(polist==null||polist.size()==0){
 	<% if(pagenow<pagesum) {%>
 		<span><a href="index?jumppage=<%=pagenow+1 %>">下一页</a></span>
 	<% }else { %>
-		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 	<% } %>
 	</div>
 <%

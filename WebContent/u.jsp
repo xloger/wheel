@@ -22,7 +22,7 @@
 <body>
 	<div class="center">
 		<div class="top">
-			<img alt="用户头像" src=""> <span>用户名字</span>
+			<img alt="用户头像" src="<%=((UserBean)request.getAttribute("userpage_userinfo")).getImage() %>"> <span>用户名字</span>
 			<% if(session.getAttribute("loginer")!=null&&((UserBean)session.getAttribute("loginer")).getID()==((UserBean)request.getAttribute("userpage_userinfo")).getID()){ %>
 			<form action="upheadimg" method="post" enctype="multipart/form-data">
 				上传头像：<input type="file" name="headimg" accept="image/*"/>
