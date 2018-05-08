@@ -15,7 +15,7 @@ CREATE DATABASE wheel;
 
 执行根目录下的脚本文件 'wheel.sql' 
 
-`
-use wheel;
-source ./wheel.sql 
-`
+`use wheel;`
+
+`source ./wheel.sql; `
+
