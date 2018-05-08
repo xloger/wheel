@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.xloger.bean.UserBean;
 import com.xloger.dao.UserDao;
@@ -42,7 +43,7 @@ public class UpHeadimgServlet extends HttpServlet{
 		sfu.setFileSizeMax(2*1024*1024);
 		
 		try {
-			List<FileItem> items=sfu.parseRequest(req);
+			List<FileItem> items=sfu.parseRequest((RequestContext) req);
 			for(int i=0;i<items.size();i++){
 				FileItem item=items.get(i);
 				if(!item.isFormField()){
