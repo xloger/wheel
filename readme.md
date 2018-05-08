@@ -19,3 +19,5 @@ CREATE DATABASE wheel;
 
 `source ./wheel.sql; `
 
+## 样例
+https://tomcat.atatakai.xin/wheel/
