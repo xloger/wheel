@@ -42,7 +42,7 @@ public class PostDao {
 	//更新帖子的信息
 	public void updatePost(PostBean po){
 		DbBean db=new DbBean();
-		String sql="update wheel_posts set post_status = "+po.getStatus()+", post_comNum = "+po.getComNum()+", post_lookNum = "+po.getLookNum()+", post_lastdate = '"+po.getLastdate()+"', post_lastuser = "+po.getLastuser()+" where ID = "+po.getID();
+		String sql="update wheel_posts set post_status = "+po.getStatus()+", post_comNum = "+po.getComNum()+", post_lookNum = "+po.getLookNum()+", post_lastdate = '"+po.getLastdate()+"', post_lastuser = '"+po.getLastuser()+"' where ID = "+po.getID();
 		try {
 			db.update(sql);
 		} catch (Exception e) {
